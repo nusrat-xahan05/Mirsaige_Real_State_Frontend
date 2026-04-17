@@ -2,9 +2,18 @@ import { getPosts } from "@/lib/api";
 import PostCard from "../ui/PostCard";
 import { IPost } from "@/types/post.interface";
 import SectionHeading from "../ui/SectionHeading";
+import SearchBar from "../ui/SearchBar";
+import Tabs from "../ui/Tabs";
 
-export default async function BlogPost() {
-  const data = await getPosts();
+export default async function BlogPost({
+  searchParams,
+}: {
+  searchParams: { tab?: string; search?: string };
+}) {
+  const data = await getPosts({
+    tab: searchParams?.tab,
+    search: searchParams?.search,
+  });
   const posts = data.data;
 
   return (
@@ -15,7 +24,10 @@ export default async function BlogPost() {
       of sustainable residency with Mirsaige."
       ></SectionHeading>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <SearchBar></SearchBar>
+      <Tabs></Tabs>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         {posts.map((post: IPost) => (
           <PostCard key={post.id} post={post} />
         ))}

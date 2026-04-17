@@ -8,3 +8,5 @@ export interface IPost {
   };
   publishedAt?: Date;
 }
+
+export const tabs = ["all", "recent", "featured"];

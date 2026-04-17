@@ -3,11 +3,13 @@
 :root {
   --brand-navy: #141729;
   --foreground: #ededed;
+  --highlighted: #dc9832;
 }
 
 @theme inline {
   --color-brand-bg: var(--brand-navy);
   --color-foreground: var(--foreground);
+  --color-highlighted: var(--highlighted);
   --font-sans: var(--font-inter);
   --font-display: var(--font-display);
 }

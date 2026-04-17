@@ -1,9 +1,29 @@
-export const API_URL = process.env.NEXT_PUBLIC_API_URL;
+const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
-export const getPosts = async () => {
-  const res = await fetch(`${API_URL}/posts?populate=*`, {
-    cache: "no-store",
-  });
+type GetPostsParams = {
+  tab?: string;
+  search?: string;
+};
+
+export const getPosts = async ({ tab, search }: GetPostsParams) => {
+  let url = `${API_URL}/posts?populate=*`;
+
+  // Featured filter
+  if (tab === "featured") {
+    url += `&filters[isFeatured][$eq]=true`;
+  }
+
+  // Recent sort
+  if (tab === "recent") {
+    url += `&sort=createdAt:desc`;
+  }
+
+  // Search filter
+  if (search) {
+    url += `&filters[title][$containsi]=${search}`;
+  }
+
+  const res = await fetch(url, { cache: "no-store" });
 
   if (!res.ok) {
     throw new Error("Failed to fetch posts");
