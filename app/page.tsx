@@ -1,8 +1,9 @@
+import BlogPost from "@/components/modules/BlogPost";
 
-export default function Home() {
+export default async function Home() {
   return (
-    <main className="p-6">
-      <h1 className="text-2xl font-bold">Real Estate Blog</h1>
+    <main className="">
+      <BlogPost></BlogPost>
     </main>
   );
 }
