@@ -18,8 +18,9 @@ export default async function BlogPost({
     search: searchParams?.search,
     page: currentPage,
   });
-  const posts = data.data;
-  const pagination = data.meta.pagination;
+
+  const posts = data?.data;
+  const pagination = data?.meta.pagination;
 
   return (
     <div className="max-w-360 mx-auto px-4 2xl:px-20 pt-10 pb-28">
@@ -39,9 +40,11 @@ export default async function BlogPost({
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {posts.map((post: IPost) => (
-          <PostCard key={post.id} post={post} />
-        ))}
+        {posts.length === 0 ? (
+          <p>No posts found</p>
+        ) : (
+          posts.map((post: IPost) => <PostCard key={post.id} post={post} />)
+        )}
       </div>
 
       <Pagination totalPages={pagination.pageCount} />
