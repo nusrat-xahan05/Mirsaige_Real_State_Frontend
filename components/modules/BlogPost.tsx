@@ -17,7 +17,7 @@ export default async function BlogPost({
   const posts = data.data;
 
   return (
-    <div className="max-w-360 mx-auto px-4 2xl:px-20 py-20">
+    <div className="max-w-360 mx-auto px-4 2xl:px-20 pt-10 pb-28">
       <SectionHeading
         title="All Blogs"
         subtitle="Elevating Urban Living Through Modern Architecture. Discover exclusive properties, expert market insights, and the future 

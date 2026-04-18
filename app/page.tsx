@@ -1,4 +1,5 @@
 import BlogPost from "@/components/modules/BlogPost";
+import Logo from "@/components/ui/Logo";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -16,6 +17,9 @@ export default async function Home({
 
   return (
     <main className="">
+      {/* Logo Section */}
+      <Logo></Logo>
+
       {/* Will implement suspense */}
       <BlogPost searchParams={resolvedParams}></BlogPost>
     </main>
