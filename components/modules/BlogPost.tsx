@@ -5,6 +5,7 @@ import SectionHeading from "../ui/SectionHeading";
 import SearchBar from "../ui/SearchBar";
 import Tabs from "../ui/Tabs";
 import Pagination from "../ui/Pagination";
+import PostCreateBtn from "../ui/PostCreateBtn";
 
 export default async function BlogPost({
   searchParams,
@@ -29,7 +30,13 @@ export default async function BlogPost({
       ></SectionHeading>
 
       <SearchBar></SearchBar>
-      <Tabs></Tabs>
+      <div className="flex items-center justify-between mt-20 mb-14">
+        <div className="flex-1 flex justify-center">
+          <Tabs />
+        </div>
+
+        <PostCreateBtn></PostCreateBtn>
+      </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {posts.map((post: IPost) => (

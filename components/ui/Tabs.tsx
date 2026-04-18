@@ -21,7 +21,7 @@ export default function Tabs() {
   };
 
   return (
-    <div className="flex justify-center items-center gap-2 mt-20 mb-14">
+    <div className="flex justify-center items-center gap-2 border p-1.5 rounded-full border-highlighted/50">
       {tabs.map((tab) => {
         const isActive = currentTab === tab;
 
