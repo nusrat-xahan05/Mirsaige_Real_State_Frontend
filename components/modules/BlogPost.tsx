@@ -17,7 +17,7 @@ export default async function BlogPost({
   const posts = data.data;
 
   return (
-    <div className="max-w-360 mx-auto px-4 2xl:px-20">
+    <div className="max-w-360 mx-auto px-4 2xl:px-20 py-20">
       <SectionHeading
         title="All Blogs"
         subtitle="Elevating Urban Living Through Modern Architecture. Discover exclusive properties, expert market insights, and the future 
@@ -27,7 +27,7 @@ export default async function BlogPost({
       <SearchBar></SearchBar>
       <Tabs></Tabs>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {posts.map((post: IPost) => (
           <PostCard key={post.id} post={post} />
         ))}
