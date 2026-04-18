@@ -3,6 +3,37 @@ import { formatDate } from "@/lib/formatDate";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import type { Metadata } from "next";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: { slug: string };
+}): Promise<Metadata> {
+  const { slug } = await params;
+  const post = await getPostBySlug(slug);
+
+  if (!post) {
+    return {
+      title: "Post Not Found | Mirsaige PMC",
+    };
+  }
+
+  const fullImageUrl = post.image?.url
+    ? `${API_URL?.replace("/api", "")}${post.image.url}`
+    : "";
+
+  return {
+    title: `${post.title} | Mirsaige PMC`,
+    description: post.description.slice(0, 160),
+    openGraph: {
+      title: post.title,
+      description: post.description.slice(0, 160),
+      images: fullImageUrl ? [fullImageUrl] : [],
+      type: "article",
+    },
+  };
+}
 
 export default async function PostDetails({
   params,

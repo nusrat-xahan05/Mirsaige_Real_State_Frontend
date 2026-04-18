@@ -13,8 +13,9 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: "Mirsaige Real Estate Blog",
-  description: "A blog about real estate trends, tips, and insights.",
+  title: "Premium Real Estate Insights | Mirsaige PMC",
+  description:
+    "Explore the finest urban living and architectural marvels in Bangladesh.",
 };
 
 export default function RootLayout({

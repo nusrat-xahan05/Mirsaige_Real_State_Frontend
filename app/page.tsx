@@ -1,4 +1,11 @@
 import BlogPost from "@/components/modules/BlogPost";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Premium Real Estate Insights | Mirsaige PMC",
+  description:
+    "Explore the finest urban living and architectural marvels in Bangladesh.",
+};
 
 export default async function Home({
   searchParams,
