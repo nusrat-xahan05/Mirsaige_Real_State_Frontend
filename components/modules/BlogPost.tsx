@@ -31,12 +31,17 @@ export default async function BlogPost({
       ></SectionHeading>
 
       <SearchBar></SearchBar>
-      <div className="flex items-center justify-between mt-20 mb-14">
-        <div className="flex-1 flex justify-center">
+
+      <div className="grid grid-cols-1 md:grid-cols-3 items-center gap-6 mt-10 mb-20">
+        <div className="hidden md:block"></div>
+
+        <div className="flex justify-center">
           <Tabs />
         </div>
 
-        <PostCreateBtn></PostCreateBtn>
+        <div className="flex justify-end">
+          <PostCreateBtn />
+        </div>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

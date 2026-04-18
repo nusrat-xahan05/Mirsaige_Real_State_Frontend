@@ -16,12 +16,12 @@ export default function Tabs() {
     } else {
       params.set("tab", tab);
     }
-
+    params.delete("page");
     router.push(`/?${params.toString()}`, { scroll: false });
   };
 
   return (
-    <div className="flex justify-center items-center gap-2 border p-1.5 rounded-full border-highlighted/50">
+    <div className="w-fit flex justify-center items-center gap-2 border p-1.5 rounded-full border-highlighted/50">
       {tabs.map((tab) => {
         const isActive = currentTab === tab;
 

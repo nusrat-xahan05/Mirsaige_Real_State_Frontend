@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export default function PostCreateBtn() {
   return (
-    <div>
+    <div className="w-fit">
       <Link
         href="/posts/create"
         className="bg-highlighted text-white px-6 py-2 rounded-full font-bold hover:bg-white hover:text-brand-bg transition-all flex items-center gap-2"

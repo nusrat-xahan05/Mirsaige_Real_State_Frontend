@@ -26,6 +26,7 @@ export default function SearchBar() {
       params.delete("search");
     }
 
+    params.delete("page");
     router.replace(`/?${params.toString()}`, { scroll: false });
   }, [debouncedValue]);
 
