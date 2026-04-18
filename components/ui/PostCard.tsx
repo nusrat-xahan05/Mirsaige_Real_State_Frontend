@@ -1,17 +1,17 @@
 "use client";
-import { API_URL } from "@/lib/api";
 import { IPost } from "@/types/post.interface";
 import Image from "next/image";
 import Link from "next/link";
 
 export default function PostCard({ post }: { post: IPost }) {
+  console.log("Rendering PostCard for:", post?.image?.url);
   return (
     <div className="group bg-[#1c2136] rounded-2xl overflow-hidden border border-white/5 hover:border-highlighted/50 transition-all duration-500 shadow-xl">
       {/* Image Container */}
       <div className="relative h-64 overflow-hidden">
         {post.image?.url && (
           <Image
-            src={`${API_URL?.replace("/api", "")}${post?.image?.url}`}
+            src={post?.image?.url}
             alt={post?.title}
             fill
             className="object-cover transition-transform duration-700 group-hover:scale-110"

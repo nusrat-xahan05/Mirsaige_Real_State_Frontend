@@ -32,20 +32,3 @@ const nextConfig: NextConfig = {
 };
 
 export default nextConfig;
-
-// remotePatterns: [
-//       {
-//         protocol: "http",
-//         hostname: "127.0.0.1", // Use the IP instead of 'localhost'
-//         port: "1337",
-//         pathname: "/uploads/**",
-//       },
-//       {
-//         protocol: "http",
-//         hostname: "localhost",
-//         port: "1337",
-//         pathname: "/uploads/**",
-//       },
-//     ],
-//     // This allows Next.js to fetch from local/private IPs
-//     unoptimized: true,

@@ -1,4 +1,4 @@
-import { API_URL, getPostBySlug } from "@/lib/api";
+import { getPostBySlug } from "@/lib/api";
 import { formatDate } from "@/lib/formatDate";
 import Image from "next/image";
 import Link from "next/link";
@@ -19,9 +19,7 @@ export async function generateMetadata({
     };
   }
 
-  const fullImageUrl = post.image?.url
-    ? `${API_URL?.replace("/api", "")}${post?.image?.url}`
-    : "";
+  const fullImageUrl = post.image?.url ? post?.image?.url : "";
 
   return {
     title: `${post?.title} | Mirsaige PMC`,
@@ -51,7 +49,7 @@ export default async function PostDetails({
       <section className="relative h-[80vh] min-h-100 w-full">
         {post.image?.url && (
           <Image
-            src={`${API_URL?.replace("/api", "")}${post?.image?.url}`}
+            src={post?.image?.url}
             alt={post?.title}
             fill
             className="object-cover"
