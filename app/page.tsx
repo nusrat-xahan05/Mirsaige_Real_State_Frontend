@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 export default async function Home({
   searchParams,
 }: {
-  searchParams: Promise<{ tab?: string; search?: string }>;
+  searchParams: Promise<{ tab?: string; search?: string; page?: number }>;
 }) {
   const resolvedParams = await searchParams;
 

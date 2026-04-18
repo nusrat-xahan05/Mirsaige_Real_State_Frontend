@@ -3,10 +3,14 @@ export const API_URL = process.env.NEXT_PUBLIC_API_URL;
 type GetPostsParams = {
   tab?: string;
   search?: string;
+  page?: number;
 };
 
-export const getPosts = async ({ tab, search }: GetPostsParams) => {
+export const getPosts = async ({ tab, search, page = 1 }: GetPostsParams) => {
   let url = `${API_URL}/posts?populate=*`;
+
+  // Pagination
+  url += `&pagination[page]=${page}&pagination[pageSize]=6`;
 
   // Featured filter
   if (tab === "featured") {
@@ -32,23 +36,8 @@ export const getPosts = async ({ tab, search }: GetPostsParams) => {
   return res.json();
 };
 
-// export const getPostBySlug = async (slug: string) => {
-//   const res = await fetch(
-//     `${API_URL}/posts?filters[slug][$eq]=${slug}&populate=*`,
-//     { cache: "no-store" },
-//   );
-
-//   if (!res.ok) {
-//     throw new Error("Failed to fetch post");
-//   }
-
-//   return res.json();
-// };
-
 export const getPostBySlug = async (slug: string) => {
-  // We use the plural endpoint with a filter
   const url = `${API_URL}/posts?filters[slug][$eq]=${slug}&populate=*`;
-
   const res = await fetch(url, { cache: "no-store" });
 
   if (!res.ok) {
@@ -57,10 +46,6 @@ export const getPostBySlug = async (slug: string) => {
 
   const response = await res.json();
 
-  /**
-   * IMPORTANT: Strapi filters always return an array (e.g., [post]).
-   * We need to return just the first item [0] or null if empty.
-   */
   if (response.data && response.data.length > 0) {
     return response.data[0];
   }

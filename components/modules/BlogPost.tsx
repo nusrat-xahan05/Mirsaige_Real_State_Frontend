@@ -4,17 +4,21 @@ import { IPost } from "@/types/post.interface";
 import SectionHeading from "../ui/SectionHeading";
 import SearchBar from "../ui/SearchBar";
 import Tabs from "../ui/Tabs";
+import Pagination from "../ui/Pagination";
 
 export default async function BlogPost({
   searchParams,
 }: {
-  searchParams: { tab?: string; search?: string };
+  searchParams: { tab?: string; search?: string; page?: number };
 }) {
+  const currentPage = Number(searchParams.page) || 1;
   const data = await getPosts({
     tab: searchParams?.tab,
     search: searchParams?.search,
+    page: currentPage,
   });
   const posts = data.data;
+  const pagination = data.meta.pagination;
 
   return (
     <div className="max-w-360 mx-auto px-4 2xl:px-20 pt-10 pb-28">
@@ -32,6 +36,8 @@ export default async function BlogPost({
           <PostCard key={post.id} post={post} />
         ))}
       </div>
+
+      <Pagination totalPages={pagination.pageCount} />
     </div>
   );
 }
