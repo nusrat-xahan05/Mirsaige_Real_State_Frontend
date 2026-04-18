@@ -20,15 +20,15 @@ export async function generateMetadata({
   }
 
   const fullImageUrl = post.image?.url
-    ? `${API_URL?.replace("/api", "")}${post.image.url}`
+    ? `${API_URL?.replace("/api", "")}${post?.image?.url}`
     : "";
 
   return {
-    title: `${post.title} | Mirsaige PMC`,
-    description: post.description.slice(0, 160),
+    title: `${post?.title} | Mirsaige PMC`,
+    description: post?.description.slice(0, 160),
     openGraph: {
-      title: post.title,
-      description: post.description.slice(0, 160),
+      title: post?.title,
+      description: post?.description.slice(0, 160),
       images: fullImageUrl ? [fullImageUrl] : [],
       type: "article",
     },
@@ -51,8 +51,8 @@ export default async function PostDetails({
       <section className="relative h-[80vh] min-h-100 w-full">
         {post.image?.url && (
           <Image
-            src={`${API_URL?.replace("/api", "")}${post.image.url}`}
-            alt={post.title}
+            src={`${API_URL?.replace("/api", "")}${post?.image?.url}`}
+            alt={post?.title}
             fill
             className="object-cover"
             priority
@@ -68,10 +68,10 @@ export default async function PostDetails({
           <div className="flex flex-wrap items-center justify-between gap-4 mb-8 border-b border-white/5 pb-6">
             <div className="flex items-center gap-4">
               <time className="text-gray-400 text-sm font-medium">
-                {formatDate(post.createdAt)}
+                {formatDate(post?.createdAt)}
               </time>
 
-              {post.isFeatured && (
+              {post?.isFeatured && (
                 <span className="bg-highlighted text-brand-bg px-3 py-1 rounded-md text-[10px] font-bold uppercase tracking-tighter shadow-[0_0_15px_rgba(218,150,50,0.4)]">
                   Featured Property
                 </span>
@@ -83,12 +83,12 @@ export default async function PostDetails({
           </div>
 
           <h1 className="font-display text-5xl xl:text-6xl font-bold text-white mb-8 leading-[1.1] tracking-tight">
-            {post.title}
+            {post?.title}
           </h1>
 
           <div className="prose prose-invert prose-highlighted max-w-none">
             <p className="text-gray-400 text-lg md:text-xl leading-relaxed mb-12 first-letter:text-5xl first-letter:font-bold first-letter:text-highlighted first-letter:mr-3 first-letter:float-left">
-              {post.description}
+              {post?.description}
             </p>
           </div>
 

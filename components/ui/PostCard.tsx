@@ -11,8 +11,8 @@ export default function PostCard({ post }: { post: IPost }) {
       <div className="relative h-64 overflow-hidden">
         {post.image?.url && (
           <Image
-            src={`${API_URL?.replace("/api", "")}${post.image.url}`}
-            alt={post.title}
+            src={`${API_URL?.replace("/api", "")}${post?.image?.url}`}
+            alt={post?.title}
             fill
             className="object-cover transition-transform duration-700 group-hover:scale-110"
             sizes="(max-w-768px) 100vw, 33vw"
@@ -26,16 +26,16 @@ export default function PostCard({ post }: { post: IPost }) {
       {/* Content */}
       <div className="p-6">
         <h2 className="text-xl font-display font-bold text-white mb-3 line-clamp-1 group-hover:text-highlighted transition-colors">
-          {post.title}
+          {post?.title}
         </h2>
 
         <p className="text-gray-400 text-sm leading-relaxed mb-6 line-clamp-2">
-          {post.description}
+          {post?.description}
         </p>
 
         <div className="flex items-center justify-between">
           <Link
-            href={`/posts/${post.slug}`}
+            href={`/posts/${post?.slug}`}
             className="inline-flex items-center gap-2 text-highlighted font-semibold text-sm hover:gap-3 transition-all"
           >
             Explore Detail
