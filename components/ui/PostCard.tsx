@@ -1,5 +1,5 @@
 "use client";
-import { IMAGE_API_URL } from "@/lib/imageFetching";
+import { API_URL } from "@/lib/api";
 import { IPost } from "@/types/post.interface";
 import Image from "next/image";
 import Link from "next/link";
@@ -11,7 +11,7 @@ export default function PostCard({ post }: { post: IPost }) {
       <div className="relative h-64 overflow-hidden">
         {post.image?.url && (
           <Image
-            src={`${IMAGE_API_URL}${post.image.url}`}
+            src={`${API_URL?.replace("/api", "")}${post.image.url}`}
             alt={post.title}
             fill
             className="object-cover transition-transform duration-700 group-hover:scale-110"
