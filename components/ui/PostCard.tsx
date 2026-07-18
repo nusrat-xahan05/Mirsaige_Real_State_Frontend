@@ -1,6 +1,6 @@
 "use client";
 import { IPost } from "@/types/post.interface";
-import Image from "next/image";
+// import Image from "next/image";
 import Link from "next/link";
 
 export default function PostCard({ post }: { post: IPost }) {
@@ -8,7 +8,7 @@ export default function PostCard({ post }: { post: IPost }) {
   return (
     <div className="group bg-[#1c2136] rounded-2xl overflow-hidden border border-white/5 hover:border-highlighted/50 transition-all duration-500 shadow-xl">
       {/* Image Container */}
-      <div className="relative h-64 overflow-hidden">
+      {/* <div className="relative h-64 overflow-hidden">
         {post.image?.url && (
           <Image
             src={post?.image?.url}
@@ -19,10 +19,9 @@ export default function PostCard({ post }: { post: IPost }) {
             priority
           />
         )}
-        {/* Subtle Overlay */}
+        Subtle Overlay
         <div className="absolute inset-0 bg-linear-to-t from-[#141729] via-transparent to-transparent opacity-60" />
-      </div>
-
+      </div> */}
       {/* Content */}
       <div className="p-6">
         <h2 className="text-xl font-display font-bold text-white mb-3 line-clamp-1 group-hover:text-highlighted transition-colors">

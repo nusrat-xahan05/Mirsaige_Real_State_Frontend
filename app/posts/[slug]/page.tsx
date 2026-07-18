@@ -1,6 +1,6 @@
 import { getPostBySlug } from "@/lib/api";
 import { formatDate } from "@/lib/formatDate";
-import Image from "next/image";
+// import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
@@ -46,7 +46,7 @@ export default async function PostDetails({
   return (
     <main className="min-h-screen bg-brand-bg text-white selection:bg-highlighted/30">
       {/* Post Image */}
-      <section className="relative h-[80vh] min-h-100 w-full">
+      {/* <section className="relative h-[80vh] min-h-100 w-full">
         {post.image?.url && (
           <Image
             src={post?.image?.url}
@@ -58,10 +58,10 @@ export default async function PostDetails({
         )}
 
         <div className="absolute inset-0 bg-linear-to-b from-[#141729]/20 via-transparent to-brand-bg" />
-      </section>
+      </section> */}
 
       {/* Post Content */}
-      <article className="max-w-5xl 2xl:max-w-7xl mx-auto px-6 -mt-32 relative z-10">
+      <article className="max-w-5xl 2xl:max-w-7xl mx-auto px-6 mt-32 relative z-10">
         <div className="bg-[#1c2136]/80 backdrop-blur-xl border border-white/10 rounded-3xl p-8 md:p-12 shadow-2xl">
           <div className="flex flex-wrap items-center justify-between gap-4 mb-8 border-b border-white/5 pb-6">
             <div className="flex items-center gap-4">
